@@ -1,0 +1,100 @@
+Python (Engineering - Calculations)
+
+About task: 
+
+1. Converting an excel engineering calculation into verified python.
+2. Budgetted time for this activity is (2-4) hours only. 
+
+SOURCE_WORKBOOK.XLSX 
+
+1. Checks simply - supported steel beam under a uniform load. 
+2. What the spreadsheet computes is part of the task ?
+3. Read the formulas out of the workbook cells with standard textbook checks.
+4. Find the engineering references they correspond to and cite what you used:
+        a.) A textbook 
+        b.) A design code 
+        c.) a URL 
+    Notes: these include anything we can check from basic idea for the UI of the project 
+
+Important Question: 
+
+1. spreadsheet contains at least one undocumented hard-coded constant. Identify it, work out what it is and document it ?
+
+Part of the submission:
+
+Modules to be submitted: 
+
+1. beam_check.py: A python module with a function that takes workbooks inputs and returns workbooks output namely: 
+
+M, rho, Utilization, Sigma, limit and the 2 (PASS/FAIL) results
+
+Requirements: 
+
+A. Imperial Input Option:
+
+        a.) Accept inputs in ft/kip/ft/in^3/in^4/ksi 
+        b.) Conversion at the input boundaries itself.
+        c.) Then compute the values in SI units only 
+    
+    Note: 
+        a.) Use both the values for reporting purposes only !
+
+B. Incase of invalid inputs, zero or negative span, load, section properties raise a `valueError`. 
+
+C. Structure the code like a real production grade assignment. 
+
+D. One constraint to design for: 
+
+    Use a downstream: 
+
+        A deterministic parser that reads this code to build a UI for this project. 
+
+    Note:
+
+    a.) It must be able to infer the inputs. 
+    b.) The calculation steps and outputs from your code. 
+    c.) Explicit symbols and units in names and docstrings help it.  
+
+2. test_beam_check.py: (using pytest)
+
+A. Use explicit tolerances (`pytest approx`)
+
+B. Choose the test points (very important)
+
+3. VV.md: maximum for one page only 
+
+    A. Treating verification 
+
+    B. Validation distinctly in NAFEMS senses of words. 
+
+    C. AI POLICY ADDED (answer these questions)
+
+        Q.1 Which tools you used and why for what ? Identify formulas, writing the code, the tests this code; As a note only 
+
+        Q.2 Most important thing you had to check, correct or reject from an AI`s output, and have you check it properly ?
+
+4. VALIDATION: Are these the right equations ?
+
+        Note: 
+
+        a.) Keep a check on governing the formulas you used from the workbook.
+        b.) Keep a check on the references you used/checked them against.
+        c.) Thoroughly go through the assumotions under which they apply.
+
+5. VERIFICATION: Does your code solve them correctly ?
+
+        Note: 
+
+        a.) A table mapping each of your output to the workbooks value for the workbooks pre-filled inputs.
+        b.) The tolerances used in the project and why ?
+        c.) Questions tobe asked/answered while calculating based on the excle workbook itself ?
+
+ANSWER THESE QUESTIONS VERY IMPORTANT 
+
+Q.1 A discrepancy you found and what about it ?
+
+Q.2 If something doesn`t match and you can`t resolve it ?
+
+Q.3 Always say clearly scores better than making it match ?
+
+
