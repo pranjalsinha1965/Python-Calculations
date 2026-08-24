@@ -383,3 +383,25 @@ VV.md
 ```
 
 `README.md` is included as supporting documentation describing the calculation, project structure, units, testing approach, and how to run the submission.
+
+## Miniconda Environment and Jupyter Kernel Setup
+
+If the existing Miniconda environment has corrupted package archives or dependency issues, clean the Conda cache first:
+
+```text
+conda clean --all -y
+
+del C:\Users\KIIT\miniconda3\pkgs\jupyterlab_widgets-3.0.16-py312haa95532_1.conda
+
+conda clean --index-cache -y
+
+conda clean --packages -y
+
+conda clean --tarballs -y
+
+conda update -n base -c defaults conda -y
+
+conda create -n beam-task python=3.12 numpy pandas matplotlib openpyxl pytest jupyter ipykernel -y
+
+conda activate beam-task
+
