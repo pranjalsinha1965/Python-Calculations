@@ -1,0 +1,90 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Transform: AWS::Serverless-2016-10-31
+
+Description: >
+  Serverless engineering calculator.
+  API Gateway invokes Lambda.
+  Lambda performs the beam calculation and stores results in S3.
+
+Resources:
+
+  CalculationBucket:
+    Type: AWS::S3::Bucket
+
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: true
+
+  BeamCalculationApi:
+    Type: AWS::Serverless::HttpApi
+
+    Properties:
+      CorsConfiguration:
+        AllowOrigins:
+          - "*"
+        AllowHeaders:
+          - Content-Type
+        AllowMethods:
+          - POST
+          - OPTIONS
+
+  BeamCalculationFunction:
+    Type: AWS::Serverless::Function
+
+    Properties:
+      FunctionName: beam-calculator-api
+
+      CodeUri: ..
+
+      Handler: api.lambda_handler.lambda_handler
+
+      Runtime: python3.12
+
+      MemorySize: 256
+
+      Timeout: 15
+
+      Environment:
+        Variables:
+          CALCULATION_BUCKET: !Ref CalculationBucket
+
+      Policies:
+        - S3WritePolicy:
+            BucketName: !Ref CalculationBucket
+
+      Events:
+        CalculateBeam:
+          Type: HttpApi
+
+          Properties:
+            ApiId: !Ref BeamCalculationApi
+            Path: /calculate
+            Method: POST
+
+Outputs:
+
+  ApiUrl:
+    Description: API Gateway endpoint
+    Value: !Sub "https://${BeamCalculationApi}.execute-api.${AWS::Region}.amazonaws.com"
+
+  CalculateEndpoint:
+    Description: Beam calculation endpoint
+    Value: !Sub "https://${BeamCalculationApi}.execute-api.${AWS::Region}.amazonaws.com/calculate"
+
+  CalculationBucketName:
+    Description: S3 bucket for calculation records
+    Value: !Ref CalculationBucket
+
+  LambdaFunctionName:
+    Description: Lambda function name
+    Value: !Ref BeamCalculationFunction
+

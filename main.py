@@ -1,6 +1,8 @@
-from beam_check import beam_check
+from core.beam_check import beam_check
 
-result = beam_check(
+def main():
+    """Run a sample local beam calculation"""
+    result = beam_check(
     span=6.0,
     uniform_load=10.0,
     section_modulus=597.0,
@@ -10,5 +12,8 @@ result = beam_check(
     deflection_limit_ratio=360.0,
     input_units="si",
 )
+    print(result)
 
-print(result)
+if __name__ == "__main__":
+    main()
+
