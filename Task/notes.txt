@@ -97,4 +97,26 @@ Q.2 If something doesn`t match and you can`t resolve it ?
 
 Q.3 Always say clearly scores better than making it match ?
 
+Further improvements:
+
+1. create a .ipynb project for providing the explanations related to modules implemented in this project.
+
+2. It should include basic, formulas used for providing the scores related to the metric, plus python modules for importing values from Excel.
+
+3. How to install these modules and provide the use case only ?
+
+4. How to implement the converion of these input related values in EXCEL workbook only ?
+
+5. if possible pls plot the line of best fit for machine learning algorithms and provide simple plots only ?
+
+6. Cite clearly in this .ipynb file 
+
+7. create a ui using flask/streamlit for taking the input during the budgetted 2-4 hours of observation imlement a machine learning project for this only ?
+
+8. Through a video clearly tell how to run the project code that`s it !
+
+9. Use AWS Lambda to deploy streamlit web api, AWS API Gateway 
+
+10. 
+
 
