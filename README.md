@@ -72,15 +72,15 @@ The calculation considers a simply supported steel beam subjected to a uniformly
 
 The source workbook uses the following inputs:
 
-| Symbol | Description | Workbook Unit |
-|---|---|---|
-| `L` | Beam span | m |
-| `w` | Uniformly distributed load | kN/m |
-| `S` | Section modulus | cm³ |
-| `I` | Second moment of area | cm⁴ |
-| `E` | Young's modulus | GPa |
-| `fy` | Yield strength | MPa |
-| `n` | Deflection limit ratio | dimensionless |
+| Symbol | Description                | Workbook Unit |
+|--------|----------------------------|---------------|
+| `L`    | Beam span                  | m             |
+| `w`    | Uniformly distributed load | kN/m          |
+| `S`    | Section modulus            | cm³           |
+| `I`    | Second moment of area      | cm⁴           |
+| `E`    | Young's modulus            | GPa           |
+| `fy`   | Yield strength             | MPa           |
+| `n`    | Deflection limit ratio     | dimensionless |
 
 For the pre-filled workbook case:
 
@@ -196,14 +196,14 @@ The calculation also supports Imperial inputs.
 
 The Imperial input boundary accepts:
 
-| Quantity | Imperial Unit |
-|---|---|
-| Span | ft |
-| Uniform load | kip/ft |
-| Section modulus | in³ |
-| Second moment of area | in⁴ |
-| Young's modulus | ksi |
-| Yield strength | ksi |
+| Quantity              | Imperial Unit |
+|-----------------------|---------------|
+| Span                  | ft            |
+| Uniform load          | kip/ft        |
+| Section modulus       | in³           |
+| Second moment of area | in⁴           |
+| Young's modulus       | ksi           |
+| Yield strength        | ksi           |
 
 Imperial quantities are converted at the input boundary into SI units.
 
