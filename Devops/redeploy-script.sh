@@ -12,3 +12,8 @@ Compress-Archive `
     -Path deployment\lambda-package\* `
     -DestinationPath deployment\beam-calculator-lambda.zip `
     -Force
+
+aws lambda update-function-code `
+    --function-name beam-calculator-api `
+    --zip-file fileb://deployment/beam-calculator-lambda.zip `
+    --region ap-south-1
