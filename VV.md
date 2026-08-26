@@ -48,3 +48,9 @@ AI assistance was used for workbook analysis, drafting code, tests and documenta
 Outputs were checked against the workbook. The most significant item requiring checking
 was the unexplained `100000` deflection multiplier; it was replaced by explicit unit
 conversion rather than retained as a magic constant.
+
+### Majorly the AI Tools used are: 
+
+1. **Anthropic`s Claude**: General use case identifying effective edge cases active while making calculations. 
+2. **Github Copilot**: For svm based meausre while making specific branches for deployment and running the UI.
+3. **Ollama`s gemma 4b model**: For going through the calculations each and every time very effectively 
