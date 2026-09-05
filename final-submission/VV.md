@@ -21,7 +21,7 @@ Assumptions: simply supported beam, full-span UDL, constant `E` and `I`, linear-
 ## Verification — does the Python solve them correctly?
 
 For the workbook's pre-filled inputs `(L=6 m, w=10 kN/m, S=597 cm³, I=8503 cm⁴, E=200 GPa, fy=275 MPa, n=360)`, the Python outputs are:
-:--------------------------------------------------------------------------:
+|--------------------------------------------------------------------------|
 | Output           | Workbook calculation | Python         | Tolerance     |
 |------------------|---------------------:|---------------:|--------------:|
 | M                | 45.000000 kN·m       | 45.000000 kN·m | 1e-12 rel/abs |
@@ -31,7 +31,7 @@ For the workbook's pre-filled inputs `(L=6 m, w=10 kN/m, S=597 cm³, I=8503 cm�
 | limit            | 16.666667 mm         | 16.666667 mm   | 1e-10 rel     |
 | stress check     | PASS                 | PASS           | exact         |
 | deflection check | PASS                 | PASS           | exact         |
-:--------------------------------------------------------------------------:
+|--------------------------------------------------------------------------|
 
 The tolerances are tight because these are deterministic closed-form calculations with no iterative solver or measured-data uncertainty. The tests use `pytest.approx` explicitly.
 
@@ -57,13 +57,25 @@ The implemented factors include `1 ft = 0.3048 m`, `1 in = 0.0254 m`, `1 kip = 4
 
 AI assistance was used to help inspect the spreadsheet formulas, draft the Python structure/tests, and draft this V&V note. I treated AI output as unverified. The most significant correction was the import/reproducibility issue and the need to independently check the deflection conversion. I checked the formulas directly against the workbook, recalculated the numerical outputs independently, and ran the final pytest suite.
 
-**AI tool used: OpenAI ChatGPT.** I used it as an engineering/software-assistance tool, not as the authority for the calculation.
+**AI tool used: OpenAI ChatGPT.** I used it as an ai tool, not as the authority for the calculation.
 
 Examples of how I used it:
 
 * **Formula identification:** ChatGPT helped translate the spreadsheet formulas into explicit equations. For example, `Calculation!B2 = wL²/8` was identified as the maximum bending moment for a simply supported beam under a full-span UDL, and `B6` as the standard `5wL⁴/(384EI)` deflection equation.
 * **Code drafting:** ChatGPT helped draft the Python function, SI boundary conversions, dataclass output structure, and pytest cases.
 * **V&V drafting:** ChatGPT helped structure this note around the distinction between validation (are the equations/model appropriate?) and verification (does the Python implement them correctly?).
+
+Other tools mostly used are: 
+
+* **Claude Sonnet:**	Used in the earlier analysis stage to interpret the spreadsheet structure, identify the likely beam equations, and discuss the engineering assumptions and unit handling.
+
+* **OpenAI ChatGPT:** 	Used to refine the Python implementation, structure the pytest suite, review reproducibility issues, and help draft the V&V note.
+
+* **GitHub Copilot:**	Used as coding assistance while developing/refactoring Python and pytest code. Suggestions were reviewed rather than accepted automatically.
+
+* **DeepSeek:** 	Used as an additional reasoning/cross-checking tool for parts of the calculation and implementation approach. Its outputs were treated as suggestions and independently checked.
+
+* **Perplexity:**	 Used for finding/checking external engineering and unit-conversion references so that the formulas and conversion factors could be independently sourced.
 
 ### Most significant AI output checked/corrected
 

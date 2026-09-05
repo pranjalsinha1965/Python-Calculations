@@ -161,7 +161,7 @@
 #     assert result.stress_result == "FAIL"
 
 import pytest
-from beam_check import beam_check, FT_TO_M, IN3_TO_M3, IN4_TO_M4, KIP_TO_N, KSI_TO_PA
+from core.beam_check import beam_check, FT_TO_M, IN3_TO_M3, IN4_TO_M4, KIP_TO_N, KSI_TO_PA
 
 WORKBOOK_INPUTS = dict(span=6.0, uniform_load=10.0, section_modulus=597.0,
     second_moment_of_area=8503.0, youngs_modulus=200.0, yield_strength=275.0,
