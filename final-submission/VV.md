@@ -9,11 +9,13 @@ A small Python implementation of a spreadsheet-based simply supported steel-beam
 The source workbook checks two governing criteria:
 
 **1. Bending stress**
+
 **2. Midspan deflection**
 
 The Python implementation deliberately separates:
 
 - **Validation: ** — whether the mathematical model and equations are appropriate for the stated beam/load case.
+
 - **Verification: ** — whether the Python implementation correctly solves those equations and reproduces the workbook outputs.
 
 The final submission consists of:
