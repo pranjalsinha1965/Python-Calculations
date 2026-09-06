@@ -8,8 +8,8 @@ A small Python implementation of a spreadsheet-based simply supported steel-beam
 
 The source workbook checks two governing criteria:
 
-1. **Bending stress**
-2. **Midspan deflection**
+**1. Bending stress**
+**2. Midspan deflection**
 
 The Python implementation deliberately separates:
 
